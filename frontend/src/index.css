@@ -1,0 +1,14 @@
+/* Remove margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Optionally, set a default font and box-sizing */
+body {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: aqua;
+}
+
+/* Optionally, add additional styles as needed */

@@ -1,0 +1,11 @@
+#footer {
+  margin-top: 150px;
+  background-color: #800000;
+  padding: 50px;
+}
+
+.footerText {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-family: cursive;
+}
