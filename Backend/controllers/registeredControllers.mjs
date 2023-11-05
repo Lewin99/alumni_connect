@@ -6,18 +6,15 @@ import UserModel from "../models/UsersModel.mjs";
 dotenv.config();
 const Secret_Key = process.env.SECRET_key;
 
-// Register a user for an event
 export const registerForEvent = async (req, res) => {
   try {
     const { title, description, category, date, location, timeFrom, timeTo } =
       req.body;
 
-    // Extract user ID from the token in the cookie
     const token = req.cookies.token;
-    const decoded = jwt.verify(token, Secret_Key); // Replace with your actual secret key
+    const decoded = jwt.verify(token, Secret_Key);
     const userId = decoded.userId;
 
-    // Check if the user exists
     const user = await UserModel.findById(userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
