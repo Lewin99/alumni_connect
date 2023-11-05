@@ -41,6 +41,25 @@ function LoggedInMyEvents() {
     fetchMyEvents();
   }, []);
 
+  const handleDeleteSavedEvent = async (eventId) => {
+    try {
+      const response = await fetch(`/api/events/${eventId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setMyEvents((events) =>
+          events.filter((event) => event._id !== eventId)
+        );
+        alert("The clicked event has been canceled");
+      } else {
+        console.log("Canceling failed");
+      }
+    } catch (error) {
+      console.log("Error occurred", error);
+    }
+  };
+
   const handleDeleteEvent = async (eventId) => {
     try {
       const response = await fetch(`/api/registered/${eventId}`, {
@@ -293,7 +312,7 @@ function LoggedInMyEvents() {
                       <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={() => handleDeleteEvent(event._id)}
+                        onClick={() => handleDeleteSavedEvent(event._id)}
                       >
                         Delete
                       </button>
