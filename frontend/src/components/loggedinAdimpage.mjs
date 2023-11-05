@@ -4,13 +4,13 @@ import "./Styles/loggedInMyEvents.css";
 function LoggedInAdminPage() {
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [registeredEvents, setRegisteredEvents] = useState([]);
-  const [editingUser, setEditingUser] = useState(null); // Track the user being edited
-  const [editingEvent, setEditingEvent] = useState(null); // Track the event being edited
+  const [editingUser, setEditingUser] = useState(null);
+  const [editingEvent, setEditingEvent] = useState(null);
 
   useEffect(() => {
     const fetchRegisteredUsers = async () => {
       try {
-        const response = await fetch("/api/users"); // Replace with your API endpoint
+        const response = await fetch("/api/users");
         if (response.ok) {
           const data = await response.json();
           setRegisteredUsers(data);
@@ -27,7 +27,7 @@ function LoggedInAdminPage() {
 
     const fetchRegisteredEvents = async () => {
       try {
-        const response = await fetch("/api/events"); // Replace with your API endpoint
+        const response = await fetch("/api/events");
         if (response.ok) {
           const data = await response.json();
           setRegisteredEvents(data);
@@ -85,7 +85,7 @@ function LoggedInAdminPage() {
   };
 
   const handleEditUser = (user) => {
-    setEditingUser(user); // Set the user to be edited
+    setEditingUser(user);
   };
 
   const handleSaveUser = async (user) => {
@@ -103,7 +103,6 @@ function LoggedInAdminPage() {
           users.map((u) => (u._id === user._id ? user : u))
         );
 
-        // Exit the edit mode
         setEditingUser(null);
         alert("User has been updated");
       } else {
@@ -157,7 +156,7 @@ function LoggedInAdminPage() {
                       <div>
                         <input
                           type="text"
-                          value={editingUser.lastname} // Add a lastname field
+                          value={editingUser.lastname}
                           onChange={(e) =>
                             setEditingUser({
                               ...editingUser,

@@ -17,7 +17,7 @@ export function withAuthentication(WrappedComponent) {
           }
         } catch (error) {
           console.error("Error verifying authentication:", error);
-          setIsAuthenticated(false); // Set isAuthenticated to false if there's an error
+          setIsAuthenticated(false);
         }
       };
 
@@ -25,8 +25,8 @@ export function withAuthentication(WrappedComponent) {
     }, []);
 
     if (!isAuthenticated) {
-      navigate("/login"); // Redirect to the login page when not authenticated
-      return null; // Return null to prevent rendering the component
+      navigate("/login");
+      return null;
     }
 
     return <WrappedComponent {...props} />;

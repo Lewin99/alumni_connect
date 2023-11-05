@@ -49,7 +49,7 @@ function LoggedInUser() {
                   Manage Events
                 </Link>
               </li>
-              {userRole === "alumini manager" && ( // Render "Admin page" for alumni managers
+              {userRole === "alumini manager" && (
                 <li className="nav-item">
                   <Link to="AdminPage" className="nav-link text-light">
                     Admin page
